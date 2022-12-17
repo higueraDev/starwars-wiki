@@ -1,0 +1,77 @@
+@import "/src/styles/vars";
+
+.catalog__section {
+  background-color: rgba($color: #000, $alpha: 0.85);
+  border-radius: 3px;
+  padding: 20px 10px;
+
+  @media (min-width:768px) {
+    padding: 40px 20px;
+  }
+
+  @media (min-width:1200px) {
+    padding: 60px 30px;
+  }
+}
+
+.catalog__wrapper{
+  display: grid;
+  gap: 10px;
+  @media (min-width:768px) {
+    grid-template-columns: repeat(2,1fr);
+    gap: 15px;
+  }
+  @media (min-width:1200px) {
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+  }
+}
+
+.catalog__title {
+  text-align: center;
+  margin-bottom: 60px;
+  text-shadow: 0 0 2px #c8102e, 0 0 10px #c8102e, 0 0 20px #d20023,
+    0 0 30px #d20023, 0 0 40px #d20023, 0 0 50px #d20023;
+  -webkit-animation: blink 0.7s infinite alternate;
+
+  @media (min-width:1200px) {
+    margin-bottom: 80px;
+  }
+}
+
+.catalog__error {
+  color: white;
+}
+
+i {
+  color: $color-secondary;
+}
+
+.flicker--fast {
+  animation: flicker 1s linear infinite;
+}
+
+.flicker--slow {
+  animation: flicker 3s linear infinite;
+}
+
+@keyframes flicker {
+  0%,
+  19.999%,
+  22%,
+  62.999%,
+  64%,
+  64.999%,
+  70%,
+  100% {
+    opacity: 0.99;
+  }
+  20%,
+  21.999%,
+  63%,
+  63.999%,
+  65%,
+  69.999% {
+    opacity: 0.4;
+  }
+}

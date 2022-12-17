@@ -1,0 +1,19 @@
+.home__main{
+  position: absolute;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: auto;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: 0;
+
+  @media (min-width:768px) {
+    width: 95vw;
+  }
+
+  @media (min-width:1200px) {
+    width: 90vw;
+  }
+}

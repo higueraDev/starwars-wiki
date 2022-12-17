@@ -1,0 +1,22 @@
+<section #catalogSection class="catalog__section">
+  <app-loader *ngIf="loading; else loaded"></app-loader>
+  <ng-template #loaded>
+    <h2
+      *ngIf="films.length < 1 && loading === false; else isFilm"
+      class="catalog__error"
+    >
+      Oops!..., No movies found 🚧
+    </h2>
+    <ng-template #isFilm>
+      <h2 class="catalog__title">
+        F<i class="flicker--fast">i</i>lms Ca<i class="flicker--slow">t</i>alog
+      </h2>
+      <app-sorter (sortChanged)="onSortChange($event)"></app-sorter>
+      <div class="catalog__wrapper">
+        <ng-container *ngFor="let film of films">
+          <app-film *ngIf="film" [film]="film"></app-film>
+        </ng-container>
+      </div>
+    </ng-template>
+  </ng-template>
+</section>

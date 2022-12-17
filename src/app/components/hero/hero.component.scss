@@ -1,0 +1,28 @@
+.hero__section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.hero__title {
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(50%);
+  text-align: center;
+  font-weight: 300;
+  margin-top: -60px;
+  padding-left: 10px;
+
+  span {
+    background: -webkit-linear-gradient(white, #949aa0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+
+.hero__subtitle{
+  display: block;
+}

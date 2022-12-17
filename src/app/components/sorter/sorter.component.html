@@ -1,0 +1,13 @@
+<form class="sorter__form">
+  <label class="sorter__label" for="sortSelect">Select order: </label>
+  <select class="sorter__select" [(ngModel)]="sort" name="sortSelect" (change)="onSortChange()">
+    <option *ngFor="let option of sortOptions" [value]="option">
+      {{ option }}
+    </option>
+  </select>
+
+  <button title="ASC or DESC" type="button" class="sorter__button" (click)="onOrderChange()">
+    <span *ngIf="isAsc" class="material-icons">arrow_drop_up</span>
+    <span *ngIf="!isAsc" class="material-icons">arrow_drop_down</span>
+  </button>
+</form>

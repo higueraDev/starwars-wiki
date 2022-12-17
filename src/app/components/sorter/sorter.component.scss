@@ -1,0 +1,49 @@
+@import "src/styles/vars";
+
+.sorter__form{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  padding: 20px 60px 20px 0;
+}
+
+.sorter__button {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  bottom: 50%;
+  transform: translateY(50%);
+
+  span{
+    font-size: 3.5rem;
+    text-shadow: 0 0 2px #fbe122, 0 0 10px #fbe122,
+    0 0 20px #fadd00, 0 0 30px #fadd00,
+    0 0 40px #fadd00, 0 0 50px #fadd00;
+  }
+}
+
+.sorter__select {
+  display: inline-block;
+  width: auto;
+  padding: 3px 10px;
+  border-radius: 15px;
+  color: black;
+  height: 30px;
+  font-size: 1rem;
+  border-color: $color-support;
+  box-shadow: 0 0 2px rgb(119, 185, 242), 0 0 10px rgb(119, 185, 242),
+    0 0 20px rgb(2, 104, 248), 0 0 30px rgb(2, 104, 248),
+    0 0 40px rgb(2, 104, 248), 0 0 50px rgb(2, 104, 248);
+  outline: none;
+}
+
+
+.sorter__label{
+  margin-right: 10px;
+}
