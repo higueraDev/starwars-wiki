@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { SortOptions } from '../../models/enums/sort-options';
-import { InterfaceFactoryService } from '../../services/interface-factory.service';
+import { SortOptions } from '../../../models/enums/sort-options';
+import { InterfaceFactoryService } from '../../../services/interface-factory.service';
 
 @Component({
   selector: 'app-sorter',

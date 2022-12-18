@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { HeroComponent } from '../hero/hero.component';
-import { FilmCatalogComponent } from '../film-catalog/film-catalog.component';
+import { HeroComponent } from '../../components/home/hero/hero.component';
+import { FilmCatalogComponent } from '../../components/home/film-catalog/film-catalog.component';
 
 @Component({
   selector: 'app-home',
