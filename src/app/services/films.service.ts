@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { apiUrl } from 'src/api/api';
+import { apiUrl } from '../../api/api';
 import { FilmsDto } from '../models/dtos/films-dto';
 
 @Injectable({
