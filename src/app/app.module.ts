@@ -13,6 +13,7 @@ import { ImageComponent } from './components/common/image/image.component';
 import { LoaderComponent } from './components/common/loader/loader.component';
 import { SorterComponent } from './components/home/sorter/sorter.component';
 import { FormsModule } from '@angular/forms';
+import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     FilmComponent,
     ImageComponent,
     LoaderComponent,
-    SorterComponent
+    SorterComponent,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,
