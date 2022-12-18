@@ -12,6 +12,6 @@ export class FilmComponent implements OnChanges {
 
   ngOnChanges() {
     if (this.image === '' && this.film.episode_id)
-      this.image = `assets/images/films/EP${this.film.episode_id}_POS.jpg`;
+      this.image = `./assets/images/films/EP${this.film.episode_id}_POS.jpg`;
   }
 }
