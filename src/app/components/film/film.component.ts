@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { Film } from 'src/app/models/entities/film';
+import { Film } from '../../models/entities/film';
 
 @Component({
   selector: 'app-film',

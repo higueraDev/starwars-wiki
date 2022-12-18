@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Film } from 'src/app/models/entities/film';
-import { SortOptions } from 'src/app/models/enums/sort-options';
-import { FilmsService } from 'src/app/services/films.service';
+import { Film } from '../../models/entities/film';
+import { SortOptions } from '../../models/enums/sort-options';
+import { FilmsService } from '../../services/films.service';
 
 @Component({
   selector: 'app-film-catalog',
