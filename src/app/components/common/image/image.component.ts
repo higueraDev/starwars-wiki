@@ -8,5 +8,4 @@ import { Component, Input } from '@angular/core';
 export class ImageComponent {
   @Input() img: string = '';
   @Input() wPercentage: number = 100;
-  @Input() hPixels: number = 600;
 }
