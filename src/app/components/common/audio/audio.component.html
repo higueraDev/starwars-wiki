@@ -1,4 +1,6 @@
-<button [ngClass]="{ button: true, active: audioEnabled }" (click)="onClick()">
-  <span *ngIf="!audioEnabled" class="material-icons icon">volume_off</span>
-  <span *ngIf="audioEnabled" class="material-icons icon">volume_up</span>
-</button>
+<div class="audio-wrapper">
+  <button [ngClass]="{ button: true, active: audioEnabled }" (click)="onClick()">
+    <span *ngIf="!audioEnabled" class="material-icons icon">volume_off</span>
+    <span *ngIf="audioEnabled" class="material-icons icon">volume_up</span>
+  </button>
+</div>
