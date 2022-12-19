@@ -15,21 +15,14 @@
   src: url("../assets/fonts/OpenSans.ttf");
 }
 
-
 // resets browser's default css
 @import "reset";
 
 // fonts and colors
 @import "vars";
 
-// hides scrollbar
 * {
   box-sizing: border-box;
-
-  & ::-webkit-scrollbar {
-    display: none;
-  }
-
 }
 
 // general styles
@@ -39,11 +32,11 @@ h1 {
   font-family: $font-primary;
   font-size: 2.5rem;
 
-  @media (min-width:768px) {
+  @media (min-width: 768px) {
     font-size: 6rem;
   }
 
-  @media (min-width:1200px) {
+  @media (min-width: 1200px) {
     font-size: 10rem;
   }
 }
@@ -54,11 +47,11 @@ h2 {
 
   font-size: 2.6rem;
 
-  @media (min-width:768px) {
+  @media (min-width: 768px) {
     font-size: 3.5rem;
   }
 
-  @media (min-width:1200px) {
+  @media (min-width: 1200px) {
     font-size: 5rem;
   }
 }
@@ -66,11 +59,11 @@ h2 {
 h3 {
   font-size: 1.2rem;
 
-  @media (min-width:768px) {
+  @media (min-width: 768px) {
     font-size: 1.6rem;
   }
 
-  @media (min-width:1200px) {
+  @media (min-width: 1200px) {
     font-size: 1.5rem;
   }
 
@@ -79,8 +72,31 @@ h3 {
   }
 }
 
-*{
+* {
   font-family: $font-support;
   color: #fff;
 }
 
+// scrollbar styles
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $color-secondary;
+  border-radius: 5px;
+  box-shadow: 0 0 2px #c8102e, 0 0 10px #c8102e, 0 0 20px #d20023,
+    0 0 30px #d20023, 0 0 40px #d20023, 0 0 50px #d20023;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #cf2441;
+}
