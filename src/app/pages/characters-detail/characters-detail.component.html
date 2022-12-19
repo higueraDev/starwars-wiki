@@ -12,16 +12,13 @@
       </h3>
       <h3><span>Hair Color:</span> {{ character.hair_color }}</h3>
       <h3><span>Eye Color:</span> {{ character.eye_color }}</h3>
-      <h3 class="character__home">
-        <span>Homeworld:</span> {{ character.homeworld }}
-      </h3>
-      <h3 class="character__films">
+      <div class="character__films">
         <span>Related Films:</span>
-        <a *ngFor="let film of films">{{ film.title }}, </a>
-      </h3>
+        <p *ngFor="let film of films">{{ film.title }}, </p>
+      </div>
     </div>
   </div>
   <h3 *ngIf="!loading && !character" class="characters__error">
-    Oops!..., No information found <i>*</i>
+    Sir, it’s quite possible this asteroid is not entirely stable <i>*</i>
   </h3>
 </main>

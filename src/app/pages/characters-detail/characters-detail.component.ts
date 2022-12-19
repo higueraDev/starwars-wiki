@@ -5,6 +5,7 @@ import { FilmsService } from '../../services/films.service';
 import { Film } from '../../models/entities/film';
 import { ActivatedRoute } from '@angular/router';
 import { StoreService } from '../../services/store.service';
+import { PlanetsService } from '../../services/planets.service';
 
 @Component({
   selector: 'app-characters-detail',
@@ -23,7 +24,8 @@ export class CharactersDetailComponent {
   constructor(
     private route: ActivatedRoute,
     private filmsService: FilmsService,
-    private storeService: StoreService
+    private storeService: StoreService,
+    private planetsService: PlanetsService
   ) {}
 
   ngOnInit(): void {
@@ -40,7 +42,10 @@ export class CharactersDetailComponent {
 
   loadImage() {
     if (this.image === '' && this.characterName)
-      this.image = `./assets/images/characters/CHA_${this.characterName.replace(' ','_')}.jpg`;
+      this.image = `./assets/images/characters/CHA_${this.characterName.replace(
+        ' ',
+        '_'
+      )}.jpg`;
   }
 
   readCharacterName() {
@@ -52,12 +57,17 @@ export class CharactersDetailComponent {
 
   getCharacter() {
     this.character = this.storeService.getCharacters(this.characterName)[0];
-    this.loadImage()
+    this.loadImage();
+    this.getPlanet();
     this.getRelatedFilms();
   }
 
   getRelatedFilms() {
     this.films = this.filmsService.getRelatedFilms(this.character?.films || []);
     this.loading = false;
+  }
+
+  getPlanet() {
+    this.planetsService.getPlanet(this.character?.homeworld);
   }
 }

@@ -5,7 +5,7 @@
       *ngIf="films.length < 1 && loading === false; else isFilm"
       class="catalog__error"
     >
-      Oops!..., No movies found <i>*</i>
+      Sir, it’s quite possible this asteroid is not entirely stable <i>*</i>
     </h3>
     <ng-template #isFilm>
       <h2 class="catalog__title">
@@ -14,10 +14,7 @@
       <app-sorter (sortChanged)="onSortChange($event)"></app-sorter>
       <div class="catalog__wrapper">
         <ng-container *ngFor="let film of films">
-          <app-film
-            *ngIf="film"
-            [film]="film"
-          ></app-film>
+          <app-film *ngIf="film" [film]="film"></app-film>
         </ng-container>
       </div>
     </ng-template>
