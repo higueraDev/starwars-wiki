@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { HeroComponent } from '../../components/home/hero/hero.component';
 import { FilmCatalogComponent } from '../../components/home/film-catalog/film-catalog.component';
 
@@ -7,34 +7,46 @@ import { FilmCatalogComponent } from '../../components/home/film-catalog/film-ca
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
-  @ViewChild(HeroComponent) hero!: HeroComponent;
-  @ViewChild(FilmCatalogComponent) catalog!: FilmCatalogComponent;
+export class HomeComponent implements AfterViewInit {
+  @ViewChild('homeMain') private homeMain!: ElementRef<HTMLElement>;
+  @ViewChild(HeroComponent) private hero!: HeroComponent;
   private home?: HTMLElement = undefined;
   private homePosition: number = 0;
-  private isScrolled: boolean = false;
-
+  private heroHeight: number = 0;
   public titleOpacity: number = 1;
 
-  onScroll(e: Event) {
-    this.home = e.target as HTMLElement;
-    this.homePosition = this.home.scrollTop;
-    this.handleScroll();
+  ngAfterViewInit() {
+    this.getHomeElement();
+    this.getHeroHeight();
   }
 
-  handleScroll() {
-    const heroHeight = this.hero.heroSection.nativeElement.scrollHeight;
-    const catalogPosition = this.catalog.catalogSection.nativeElement.offsetTop;
+  private getHomeElement() {
+    this.home = this.homeMain.nativeElement;
+  }
 
-    this.titleOpacity = this.calculateOpacity(heroHeight, this.homePosition);
+  private getHomePosition() {
+    this.homePosition = this.homeMain.nativeElement.scrollTop;
+  }
 
-    if (
-      !this.isScrolled &&
-      this.homePosition > heroHeight * 0.1 &&
-      this.homePosition < heroHeight * 0.3
-    )
-      this.scrollToSection(catalogPosition);
-    else if (this.homePosition === 0) this.isScrolled = false;
+  private getHeroHeight() {
+    this.heroHeight = this.hero.heroSection.nativeElement.scrollHeight;
+  }
+
+  onScroll() {
+    this.getHomePosition();
+    if (this.homePosition < this.heroHeight) this.handleTitleOpacity();
+  }
+
+  onScrollButtonClick() {
+    this.getHeroHeight();
+    this.scrollToSection(this.heroHeight);
+  }
+
+  handleTitleOpacity() {
+    this.titleOpacity = this.calculateOpacity(
+      this.heroHeight,
+      this.homePosition
+    );
   }
 
   calculateOpacity(height: number, position: number): number {
@@ -43,13 +55,11 @@ export class HomeComponent {
   }
 
   scrollToSection(newSectionPosition: number) {
-    if (this.home) {
-      this.isScrolled = true;
+    if (this.home)
       this.home.scrollTo({
         top: newSectionPosition,
         left: 0,
         behavior: 'smooth',
       });
-    }
   }
 }

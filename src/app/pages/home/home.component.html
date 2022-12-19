@@ -1,4 +1,7 @@
-<main class="home__main" (scroll)="onScroll($event)">
-    <app-hero [titleOpacity]="titleOpacity"></app-hero>
-    <app-film-catalog></app-film-catalog>
+<main #homeMain class="home__main" (scroll)="onScroll()">
+  <app-hero [titleOpacity]="titleOpacity"></app-hero>
+  <button class="material-icons scroll-down" (click)="onScrollButtonClick()">
+    expand_more
+  </button>
+  <app-film-catalog></app-film-catalog>
 </main>
