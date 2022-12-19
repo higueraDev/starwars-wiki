@@ -6,8 +6,10 @@ import { BehaviorSubject, take } from 'rxjs';
 })
 export class StoreService {
   private filmNumbersStore = new BehaviorSubject<string[]>([]);
-
   readFilmNumbers$ = this.filmNumbersStore.asObservable();
+
+  private isScrolledStore = new BehaviorSubject<boolean>(false);
+  readIsScrolled$ = this.isScrolledStore.asObservable();
 
   saveFilmNumbers(numbers: string[]) {
     this.filmNumbersStore.next(numbers);
@@ -17,10 +19,13 @@ export class StoreService {
     let filmNumber = '';
 
     this.readFilmNumbers$.pipe(take(1)).subscribe((n) => {
-      console.log(n[episode_Id])
       filmNumber = n[episode_Id];
     });
 
     return filmNumber;
+  }
+
+  setScrolled(value: boolean) {
+    this.isScrolledStore.next(value);
   }
 }
