@@ -24,8 +24,6 @@ export class HomeComponent {
 
   handleScroll() {
     const heroHeight = this.hero.heroSection.nativeElement.scrollHeight;
-    const catalogHeight =
-      this.catalog.catalogSection.nativeElement.scrollHeight;
     const catalogPosition = this.catalog.catalogSection.nativeElement.offsetTop;
 
     this.titleOpacity = this.calculateOpacity(heroHeight, this.homePosition);
