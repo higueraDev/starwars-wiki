@@ -5,7 +5,7 @@
       *ngIf="films.length < 1 && loading === false; else isFilm"
       class="catalog__error"
     >
-      Oops!..., No movies found 🚧
+      Oops!..., No movies found <i>*</i>
     </h3>
     <ng-template #isFilm>
       <h2 class="catalog__title">
