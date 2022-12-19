@@ -10,7 +10,7 @@ import { StoreService } from './store.service';
 export class CharactersService {
   constructor(private http: HttpClient, private storeService: StoreService) {}
 
-  getCharacters(characterUrls: string[] = []) {
+  getCharacters(characterUrls: string[]) {
     const arr: CharacterDto[] = [];
     characterUrls.forEach((character) =>
       this.http
@@ -20,7 +20,7 @@ export class CharactersService {
           arr.push(response);
         })
     );
-    this.storeService.saveCharacters(arr);
+    this.storeService.saveCharacters(arr)
     return arr;
   }
 }

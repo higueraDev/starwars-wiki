@@ -1,0 +1,30 @@
+<main class="character-main">
+  <app-loader *ngIf="loading" class="loading"></app-loader>
+  <div class="character__card" *ngIf="character">
+    <div class="image-wrapper">
+      <app-image [img]="image"></app-image>
+    </div>
+    <div class="character__info">
+      <h3><span>Name:</span> {{ character.name }}</h3>
+      <h3><span>Birthdate:</span> {{ character.birth_year }}</h3>
+      <h3 class="character__gender">
+        <span>Gender:</span> {{ character.gender }}
+      </h3>
+      <h3><span>Hair Color:</span> {{ character.hair_color }}</h3>
+      <h3><span>Eye Color:</span> {{ character.eye_color }}</h3>
+      <h3 class="character__home">
+        <span>Homeworld:</span> {{ character.homeworld }}
+      </h3>
+      <h3 class="character__films">
+        <span>Related Films:</span>
+        <a *ngFor="let film of films">{{ film.title }}, </a>
+      </h3>
+    </div>
+  </div>
+  <h3
+  *ngIf="!loading && !character"
+  class="catalog__error"
+>
+  Oops!..., No information found 🚧
+</h3>
+</main>

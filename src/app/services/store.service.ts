@@ -37,11 +37,12 @@ export class StoreService {
     this.isScrolledStore.next(value);
   }
 
-  getCharacters() {
+  getCharacters(characterName: string = '') {
     let arr: Character[] = [];
     this.readCharacters$.pipe(take(1)).subscribe((characters) => {
       arr = characters;
     });
-    return arr;
+    const found = arr.find((c) => c.name === characterName);
+    return found ? [found] : arr;
   }
 }
