@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, take } from 'rxjs';
+import { Character } from '../models/entities/character';
 
 @Injectable({
   providedIn: 'root',
@@ -11,8 +12,15 @@ export class StoreService {
   private isScrolledStore = new BehaviorSubject<boolean>(false);
   readIsScrolled$ = this.isScrolledStore.asObservable();
 
+  private charactersStore = new BehaviorSubject<Character[]>([]);
+  readCharacters$ = this.charactersStore.asObservable();
+
   saveFilmNumbers(numbers: string[]) {
     this.filmNumbersStore.next(numbers);
+  }
+
+  saveCharacters(characters: Character[]) {
+    this.charactersStore.next(characters);
   }
 
   getFilmNumber(episode_Id: number) {
@@ -27,5 +35,13 @@ export class StoreService {
 
   setScrolled(value: boolean) {
     this.isScrolledStore.next(value);
+  }
+
+  getCharacters() {
+    let arr: Character[] = [];
+    this.readCharacters$.pipe(take(1)).subscribe((characters) => {
+      arr = characters;
+    });
+    return arr;
   }
 }

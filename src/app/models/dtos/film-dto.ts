@@ -1,3 +1,16 @@
-import { Film } from "../entities/film";
-
-export interface FilmDto extends Film {}
+export interface FilmDto {
+  title: string;
+  episode_id: number;
+  opening_crawl: string;
+  director: string;
+  producer: string;
+  release_date: string;
+  characters: string[];
+  planets: string[];
+  starships: string[];
+  vehicles: string[];
+  species: string[];
+  created: string;
+  edited: string;
+  url: string;
+}
