@@ -1,6 +1,5 @@
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { HeroComponent } from '../../components/home/hero/hero.component';
-import { FilmCatalogComponent } from '../../components/home/film-catalog/film-catalog.component';
 import { StoreService } from '../../services/store.service';
 
 @Component({
@@ -14,8 +13,8 @@ export class HomeComponent implements AfterViewInit {
   private home?: HTMLElement = undefined;
   private homePosition: number = 0;
   private heroHeight: number = 0;
-  public titleOpacity: number = 1;
   public isScrolled: boolean = false;
+  public titleOpacity: number = 1;
 
   constructor(private storeService: StoreService) {}
 

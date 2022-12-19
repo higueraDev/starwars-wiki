@@ -5,6 +5,7 @@ import { FilmsService } from '../../services/films.service';
 import { InterfaceFactoryService } from '../../services/interface-factory.service';
 import { FilmDto } from '../../models/dtos/film-dto';
 import { Subscription } from 'rxjs';
+import { StoreService } from '../../services/store.service';
 
 @Component({
   selector: 'app-movie-details',
@@ -21,12 +22,14 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private filmsService: FilmsService,
-    private interfaceFactoryService: InterfaceFactoryService
+    private interfaceFactoryService: InterfaceFactoryService,
+    private storeService:StoreService
   ) {}
 
   ngOnInit(): void {
     this.readFilmNumber();
     this.getFilm();
+    this.storeService.setScrolled(true)
   }
 
   ngOnDestroy(): void {
