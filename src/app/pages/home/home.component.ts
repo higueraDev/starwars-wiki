@@ -62,7 +62,7 @@ export class HomeComponent implements AfterViewInit {
   scrollToSection(newSectionPosition: number) {
     if (this.home)
       this.home.scrollTo({
-        top: newSectionPosition,
+        top: newSectionPosition - 100,
         left: 0,
         behavior: 'smooth',
       });
