@@ -11,6 +11,6 @@ export class FilmsService {
   constructor(private http: HttpClient) {}
 
   getFilms(episodeId: string = '') {
-    return this.http.get<FilmDto>(apiUrl(episodeId).filmsUrl);
+    return this.http.get<FilmDto | FilmsDto>(apiUrl(episodeId).filmsUrl);
   }
 }
