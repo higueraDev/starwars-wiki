@@ -14,15 +14,26 @@
   font-weight: 300;
   margin-top: -60px;
   padding-left: 10px;
+  animation: title-intro 1s;
+  transition: transform 1s ease;
 
   span {
+    display: block;
     background: -webkit-linear-gradient(white, #949aa0);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 }
 
-
-.hero__subtitle{
+.hero__subtitle {
   display: block;
+}
+
+@keyframes title-intro {
+  0% {
+    transform: translateY(50%) scale(0.1);
+  }
+  100% {
+    transform: translateY(50%) scale(1);
+  }
 }
