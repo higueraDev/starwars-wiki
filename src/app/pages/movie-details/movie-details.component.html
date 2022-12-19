@@ -1,12 +1,24 @@
-<div class="film__card">
-  <app-image [img]="image"></app-image>
-  <div class="film__info">
-    <h3 class="film__title"><span>Movie Name:</span> {{ film.title }}</h3>
-    <h3 class="film__date"><span>Release Date:</span> {{film.release_date | date:'mediumDate'}}</h3>
-    <h3 class="film__episode"><span>Episode Number:</span> {{film.episode_id}}</h3>
-    <h3 class="film__director"><span>Director:</span> {{film.director}}</h3>
-    <h3 class="film__producer"><span>Producer:</span> {{film.producer}}</h3>
-    <h3 class="film__producer"><span>Producer:</span> {{film.opening_crawl}}</h3>
-    <h3 class="film__producer"><span>Producer:</span> {{film.characters}}</h3>
+<main class="film-main">
+  <div class="film__card" *ngIf="film">
+    <div class="image-wrapper">
+      <app-image [img]="image"></app-image>
+    </div>
+    <div class="film__info">
+      <h3 class="film__title"><span>Movie Name:</span> {{ film.title }}</h3>
+      <h3 class="film__date">
+        <span>Release Date:</span> {{ film.release_date | date : "mediumDate" }}
+      </h3>
+      <h3 class="film__episode">
+        <span>Episode Number:</span> {{ film.episode_id }}
+      </h3>
+      <h3 class="film__director"><span>Director:</span> {{ film.director }}</h3>
+      <h3 class="film__producer"><span>Producer:</span> {{ film.producer }}</h3>
+      <h3 class="film__opening">
+        <span>Opening Crawl:</span> {{ film.opening_crawl }}
+      </h3>
+      <h3 class="film__producer">
+        <span>Characters:</span> {{ film.characters }}
+      </h3>
+    </div>
   </div>
-</div>
+</main>
