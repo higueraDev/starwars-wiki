@@ -14,6 +14,7 @@ import { LoaderComponent } from './components/common/loader/loader.component';
 import { SorterComponent } from './components/home/sorter/sorter.component';
 import { FormsModule } from '@angular/forms';
 import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
+import { LogoComponent } from './components/common/logo/logo.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MovieDetailsComponent } from './pages/movie-details/movie-details.compo
     ImageComponent,
     LoaderComponent,
     SorterComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    LogoComponent
   ],
   imports: [
     BrowserModule,
