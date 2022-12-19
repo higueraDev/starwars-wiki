@@ -1,7 +1,7 @@
 @import "../../../../styles/vars";
 
 .catalog__section {
-  background-color: rgba($color: #000, $alpha: 0.85);
+  background-color: $overlay;
   border-radius: 3px;
   padding: 20px 10px;
 
@@ -40,7 +40,7 @@
 }
 
 .catalog__error {
-  color: white;
+  text-align: center;
 }
 
 i {

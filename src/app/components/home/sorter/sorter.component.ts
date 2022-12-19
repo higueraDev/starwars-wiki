@@ -9,7 +9,7 @@ import { InterfaceFactoryService } from '../../../services/interface-factory.ser
 })
 export class SorterComponent {
   public isAsc: boolean = true;
-  public sort: SortOptions = SortOptions.EPISODE;
+  public sort: SortOptions = SortOptions.RELEASE;
   public sortOptions: SortOptions[] = [];
 
   @Output() sortChanged = new EventEmitter<{ sort: string; isAsc: boolean }>();
