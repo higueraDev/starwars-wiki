@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { apiUrl } from '../../api/api';
+import { FilmDto } from '../models/dtos/film-dto';
 import { FilmsDto } from '../models/dtos/films-dto';
 
 @Injectable({
@@ -9,7 +10,7 @@ import { FilmsDto } from '../models/dtos/films-dto';
 export class FilmsService {
   constructor(private http: HttpClient) {}
 
-  getFilms() {
-    return this.http.get<FilmsDto>(apiUrl().filmsUrl);
+  getFilms(episodeId: string = '') {
+    return this.http.get<FilmDto>(apiUrl(episodeId).filmsUrl);
   }
 }

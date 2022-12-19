@@ -12,4 +12,9 @@ export class InterfaceFactoryService {
 
     return newArray;
   }
+
+  checkInterface<T>(obj: any, key: string): obj is T {
+    const objectKeys = Object.keys(obj);
+    return objectKeys.includes(key);
+  }
 }

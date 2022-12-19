@@ -2,7 +2,7 @@ import { Film } from "../entities/film";
 
 export interface FilmsDto {
   count:    number;
-  next:     null;
-  previous: null;
+  next:     any;
+  previous: any;
   results:  Film[];
 }
