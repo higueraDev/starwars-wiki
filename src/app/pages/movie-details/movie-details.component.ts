@@ -1,10 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Film } from '../../models/entities/film';
 import { FilmsService } from '../../services/films.service';
 import { InterfaceFactoryService } from '../../services/interface-factory.service';
 import { FilmDto } from '../../models/dtos/film-dto';
-import { Subscription, Observable } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { StoreService } from '../../services/store.service';
 import { CharactersService } from '../../services/characters.service';
 import { Character } from '../../models/entities/character';
@@ -19,11 +19,13 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
   public image: string = '';
   public filmNumber: string = '';
   public characters: Character[] = [];
+  public loading: boolean = false;
   private routerSubscription: Subscription | null = null;
   private filmSubscription: Subscription | null = null;
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private filmsService: FilmsService,
     private interfaceFactoryService: InterfaceFactoryService,
     private storeService: StoreService,
@@ -31,6 +33,7 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
+    this.loading = true;
     this.readFilmNumber();
     this.getFilm();
     this.storeService.setScrolled(true);
@@ -70,7 +73,13 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
   }
 
   getCharacters() {
-    this.charactersService.getCharacters(this.film?.characters);
+    this.charactersService.getCharacters(this.film?.characters || []);
     this.characters = this.storeService.getCharacters();
+    this.loading = false;
+  }
+
+  onCharacterClick(name: string) {
+    const formattedName = name.replace(' ', '--');
+    this.router.navigate(['/character-details', formattedName]);
   }
 }

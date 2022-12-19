@@ -86,12 +86,32 @@
 
   h3 {
     text-align: justify;
-    line-height: 1.2;
+    line-height: 1.4;
     margin-bottom: 10px;
     span {
       display: block;
     }
   }
+}
+
+.film__characters{
+  a{
+    cursor: pointer;
+    &:hover{
+      color: $color-primary;
+    }
+  }
+}
+
+.loading{
+  position: absolute;
+  right: 50%;
+  bottom: 50%;
+  transform: translate(50%,50%);
+}
+
+.catalog__error {
+  text-align: center;
 }
 
 @keyframes show {

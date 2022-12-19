@@ -1,5 +1,6 @@
 <main class="film-main">
-  <div class="film__card" *ngIf="film">
+  <app-loader *ngIf="loading" class="loading"></app-loader>
+  <div class="film__card" *ngIf="!loading && film">
     <div class="image-wrapper">
       <app-image [img]="image"></app-image>
     </div>
@@ -16,10 +17,20 @@
       <h3 class="film__opening">
         <span>Opening Crawl:</span> {{ film.opening_crawl }}
       </h3>
-      <h3 class="film__producer">
+      <h3 class="film__characters">
         <span>Characters:</span>
-        <a *ngFor="let character of characters">{{ character.name }}, </a>
+        <a
+          *ngFor="let character of characters"
+          (click)="onCharacterClick(character.name)"
+          >{{ character.name }},
+        </a>
       </h3>
     </div>
   </div>
+  <h3
+    *ngIf="!loading && !film"
+    class="catalog__error"
+  >
+    Oops!..., No information found 🚧
+  </h3>
 </main>
