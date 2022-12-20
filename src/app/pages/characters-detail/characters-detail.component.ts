@@ -18,6 +18,7 @@ export class CharactersDetailComponent {
   public characterName: string = '';
   public loading: boolean = false;
   public films: Film[] = [];
+  public planet: any = null;
   private routerSubscription: Subscription | null = null;
   private filmSubscription: Subscription | null = null;
 
@@ -68,6 +69,10 @@ export class CharactersDetailComponent {
   }
 
   getPlanet() {
-    this.planetsService.getPlanet(this.character?.homeworld);
+    this.planetsService
+      .getPlanet(this.character?.homeworld || '')
+      .subscribe((response) => {
+        this.planet = response;
+      });
   }
 }
