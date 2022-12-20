@@ -16,7 +16,7 @@
   }
 
   @media (min-width: 1024px) {
-    width: 90vw;
+    width: 65vw;
     overflow-y: hidden;
   }
 
@@ -38,7 +38,8 @@
   animation: show 1s;
   transition: all 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
 
-  @media (min-width:768px) {
+  @media (min-width: 768px) {
+    margin-top: 150px;
     padding: 40px 0;
   }
 
@@ -94,20 +95,21 @@
   }
 }
 
-.character__films{
-  a{
+.character__films {
+  a {
     cursor: pointer;
-    &:hover{
+    &:hover {
       color: $color-primary;
     }
   }
 }
 
-.loading, .characters__error{
+.loading,
+.characters__error {
   position: absolute;
   right: 50%;
   bottom: 50%;
-  transform: translate(50%,50%);
+  transform: translate(50%, 50%);
 }
 
 .characters__error {
@@ -121,6 +123,30 @@
   }
 }
 
+.character__planet {
+  cursor: pointer;
+  &:hover{
+    color: $color-primary;
+  }
+}
+
+.character__films {
+  cursor: help;
+  p {
+    opacity: 0;
+    transition: all 0.4s ease;
+  }
+  &:hover {
+    color: $color-secondary;
+    p {
+      opacity: 1;
+    }
+  }
+}
+
+.show {
+  opacity: 1;
+}
 
 @keyframes show {
   0% {

@@ -6,6 +6,7 @@ import { Film } from '../../models/entities/film';
 import { ActivatedRoute } from '@angular/router';
 import { StoreService } from '../../services/store.service';
 import { PlanetsService } from '../../services/planets.service';
+import { Planet } from '../../models/entities/Planet';
 
 @Component({
   selector: 'app-characters-detail',
@@ -18,7 +19,7 @@ export class CharactersDetailComponent {
   public characterName: string = '';
   public loading: boolean = false;
   public films: Film[] = [];
-  public planet: any = null;
+  public planet: Planet | null = null;
   private routerSubscription: Subscription | null = null;
   private filmSubscription: Subscription | null = null;
 
@@ -57,7 +58,20 @@ export class CharactersDetailComponent {
   }
 
   getCharacter() {
-    this.character = this.storeService.getCharacters(this.characterName)[0];
+    const localObject = localStorage.getItem('Character');
+    const localCharacter =
+      localObject === undefined || localObject === null
+        ? null
+        : JSON.parse(localObject);
+
+    if (!localCharacter) {
+      this.character = this.storeService.getCharacters(this.characterName)[0];
+      if (this.character)
+        localStorage.setItem('Character', JSON.stringify(this.character));
+    } else {
+      this.character = localCharacter as Character;
+    }
+
     this.loadImage();
     this.getPlanet();
     this.getRelatedFilms();

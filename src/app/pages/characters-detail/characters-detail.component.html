@@ -12,10 +12,11 @@
       </h3>
       <h3><span>Hair Color:</span> {{ character.hair_color }}</h3>
       <h3><span>Eye Color:</span> {{ character.eye_color }}</h3>
-      <div class="character__films">
-        <span>Related Films:</span>
-        <p *ngFor="let film of films">{{ film.title }}, </p>
-      </div>
+      <h3 *ngIf="planet" class="character__planet"><span>Home World:</span> {{ planet.name }}</h3>
+      <h3 class="character__films">
+        <span>Related Films</span>
+        <p *ngFor="let film of films">{{ film.title }},</p>
+      </h3>
     </div>
   </div>
   <h3 *ngIf="!loading && !character" class="characters__error">
