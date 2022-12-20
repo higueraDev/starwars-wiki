@@ -11,6 +11,7 @@ export class CharactersService {
   constructor(private http: HttpClient, private storeService: StoreService) {}
 
   getCharacters(characterUrls: string[]) {
+    localStorage.removeItem('Character')
     const arr: CharacterDto[] = [];
     characterUrls.forEach((character) =>
       this.http
