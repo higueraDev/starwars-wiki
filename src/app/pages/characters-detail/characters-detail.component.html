@@ -12,7 +12,9 @@
       </h3>
       <h3><span>Hair Color:</span> {{ character.hair_color }}</h3>
       <h3><span>Eye Color:</span> {{ character.eye_color }}</h3>
-      <h3 *ngIf="planet" class="character__planet"><span>Home World:</span> {{ planet.name }}</h3>
+      <h3 *ngIf="planet" class="character__planet" (click)="togglePlanet()">
+        <span>Home World:</span> {{ planet.name }}
+      </h3>
       <h3 class="character__films">
         <span>Related Films</span>
         <p *ngFor="let film of films">{{ film.title }},</p>
@@ -23,3 +25,17 @@
     Sir, it’s quite possible this asteroid is not entirely stable <i>*</i>
   </h3>
 </main>
+
+<div class="planet__card" *ngIf="planet && showPlanet">
+  <span class="material-icons planet-icon">public</span><span
+    class="material-icons close-icon"
+    (click)="togglePlanet()"
+    >close</span
+  >
+  <div class="planet__info">
+    <h3><span>Planet Name:</span> {{ planet.name }}</h3>
+    <h3><span>Population:</span> {{ planet.population }}</h3>
+    <h3><span>Climate:</span> {{ planet.climate }}</h3>
+    <h3><span>Gravity:</span> {{ planet.gravity }}</h3>
+  </div>
+</div>

@@ -20,6 +20,7 @@ export class CharactersDetailComponent {
   public loading: boolean = false;
   public films: Film[] = [];
   public planet: Planet | null = null;
+  public showPlanet: boolean = false;
   private routerSubscription: Subscription | null = null;
   private filmSubscription: Subscription | null = null;
 
@@ -88,5 +89,9 @@ export class CharactersDetailComponent {
       .subscribe((response) => {
         this.planet = response;
       });
+  }
+
+  togglePlanet() {
+    this.showPlanet = !this.showPlanet;
   }
 }

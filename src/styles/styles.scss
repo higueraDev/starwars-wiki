@@ -27,9 +27,12 @@
   box-sizing: border-box;
   font-family: $font-support;
   color: #fff;
-  scroll-behavior: smooth;
 }
 
+body {
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
 
 h1 {
   color: $color-primary;
