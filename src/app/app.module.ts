@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
 import { LogoComponent } from './components/common/logo/logo.component';
 import { CharactersDetailComponent } from './pages/characters-detail/characters-detail.component';
+import { BreadcrumbComponent } from './components/common/breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CharactersDetailComponent } from './pages/characters-detail/characters-
     SorterComponent,
     MovieDetailsComponent,
     LogoComponent,
-    CharactersDetailComponent
+    CharactersDetailComponent,
+    BreadcrumbComponent
   ],
   imports: [
     BrowserModule,

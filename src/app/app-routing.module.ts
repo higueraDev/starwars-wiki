@@ -13,14 +13,23 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    data:{
+      breadcrumbTitle: 'Home'
+    },
   },
   {
     path: 'movie-details/:filmNumber',
     component: MovieDetailsComponent,
+    data:{
+      breadcrumbTitle: 'Movie Details'
+    },
   },
   {
     path: 'character-details/:characterName',
     component: CharactersDetailComponent,
+    data:{
+      breadcrumbTitle: 'Character Details'
+    },
   },
 ];
 
