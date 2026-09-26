@@ -1,0 +1,230 @@
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[6].rules[1].use[0]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[6].rules[1].use[1]!./src/styles/styles.scss?ngGlobalStyle ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "starjedi";
+  src: url('Starjedi.ttf');
+}
+@font-face {
+  font-family: "jedi";
+  src: url('Starjhol.ttf');
+}
+@font-face {
+  font-family: "open-sans";
+  src: url('OpenSans.ttf');
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "open-sans";
+  color: #fff;
+}
+
+body {
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+h1 {
+  color: #fbe122;
+  font-family: "starjedi";
+  font-size: 2.5rem;
+}
+@media (min-width: 768px) {
+  h1 {
+    font-size: 6rem;
+  }
+}
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 10rem;
+  }
+}
+
+h2 {
+  color: #c8102e;
+  font-family: "jedi";
+  font-size: 2.6rem;
+}
+@media (min-width: 768px) {
+  h2 {
+    font-size: 3.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  h2 {
+    font-size: 5rem;
+  }
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+@media (min-width: 768px) {
+  h3 {
+    font-size: 1.6rem;
+  }
+}
+@media (min-width: 1200px) {
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+h3 span {
+  color: #49c1ab;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #c8102e;
+  border-radius: 5px;
+  box-shadow: 0 0 2px #c8102e, 0 0 10px #c8102e, 0 0 20px #d20023, 0 0 30px #d20023, 0 0 40px #d20023, 0 0 50px #d20023;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #cf2441;
+}
+
+/*# sourceMappingURL=styles.css.map*/
