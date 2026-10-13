@@ -1,6 +1,13 @@
 <main class="film-main">
   <app-loader *ngIf="loading" class="loading"></app-loader>
   <div class="film__card" *ngIf="!loading && film">
+    <button
+      type="button"
+      class="detail-close"
+      aria-label="Close movie details"
+      title="Back to films"
+      routerLink="/home"
+    ></button>
     <div class="image-wrapper">
       <app-image [img]="image"></app-image>
     </div>

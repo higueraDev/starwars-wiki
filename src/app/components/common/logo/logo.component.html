@@ -1,4 +1,10 @@
 <div class="logo__overlay" [style.opacity]="overlayOpacity"></div>
-<h2 routerLink="home" class="logo__title">
+<a
+  *ngIf="!isHomePage"
+  routerLink="/home"
+  class="logo__title"
+  aria-label="Star Wars Wiki home"
+  (click)="playSaberSound()"
+>
   {{ title }} <span class="logo__subtitle">{{ subtitle }}</span>
-</h2>
+</a>

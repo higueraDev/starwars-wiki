@@ -1,4 +1,11 @@
-<div class="film__card" (click)="onClick()">
+<div
+  class="film__card"
+  role="link"
+  tabindex="0"
+  (click)="onClick()"
+  (keydown.enter)="onClick()"
+  (keydown.space)="$event.preventDefault(); onClick()"
+>
   <app-image [img]="image"></app-image>
   <div class="film__info">
     <h3 class="film__title"><span>Movie Name:</span> {{ film.title }}</h3>

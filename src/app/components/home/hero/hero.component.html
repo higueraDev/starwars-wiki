@@ -1,5 +1,31 @@
 <section #heroSection class="hero__section">
-  <h1 class="hero__title" [style.opacity]="titleOpacity">
-    {{ title }} <span class="hero--subtitle">{{ subtitle }}</span>
-  </h1>
+  <h1 class="hero__heading">Star Wars Wiki</h1>
+  <button
+    type="button"
+    class="hero__brand"
+    [class.hero__brand--compact]="isCompact"
+    [style.top.px]="brandTop"
+    [style.width.px]="brandWidth"
+    [style.height.px]="brandHeight"
+    [style.--morph-progress]="easedProgress"
+    [style.--ring-one]="ringOne + 'px'"
+    [style.--ring-two]="ringTwo + 'px'"
+    [attr.aria-label]="isCompact ? 'Back to top' : 'Scroll to film catalog'"
+    (mouseenter)="onBrandHover(true)"
+    (mouseleave)="onBrandHover(false)"
+    (click)="onBrandClick()"
+  >
+    <span class="hero__brand-surface" aria-hidden="true"></span>
+    <span class="hero__brand-blade hero__brand-blade--left" aria-hidden="true"></span>
+    <span class="hero__brand-blade hero__brand-blade--right" aria-hidden="true"></span>
+    <span
+      class="hero__wordmark"
+      [style.fontSize.px]="titleFontSize"
+      [style.letterSpacing.px]="titleLetterSpacing"
+      aria-hidden="true"
+    >
+      {{ title }}
+      <span class="hero__wordmark-subtitle" [style.fontSize.px]="subtitleFontSize">{{ subtitle }}</span>
+    </span>
+  </button>
 </section>

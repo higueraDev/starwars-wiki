@@ -1,28 +1,124 @@
-@import "../../../../styles/vars";
-
 .logo__title {
   position: fixed;
-  top: 20px;
+  top: 16px;
   right: 50%;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 134px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
   transform: translateX(50%);
+  border: 1px solid rgba(201, 218, 230, 0.28);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(76, 95, 108, 0.72), rgba(21, 32, 42, 0.96) 48%, rgba(8, 13, 19, 0.96));
+  color: #f4f6f8;
   cursor: pointer;
-  font-size: 1.5rem;
-  z-index: 1;
-  transition: all 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+  font-family: "starjedi", sans-serif;
+  font-size: 12.3px;
+  font-weight: 700;
+  letter-spacing: 2.43px;
+  line-height: 1.08;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  backdrop-filter: blur(14px);
+  transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 50%;
+    width: max(0px, min(560px, calc(50vw - 155px)));
+    height: 18px;
+    content: "";
+    pointer-events: none;
+    opacity: 0;
+    border-radius: 999px;
+    box-shadow: 0 0 5px #eaffff, 0 0 16px #85d9df, 0 0 34px rgba(58, 195, 220, 0.82);
+    transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1), opacity 100ms ease;
+  }
+
+  &::before {
+    right: calc(100% - 4px);
+    transform: translateY(-50%) scaleX(0);
+    transform-origin: right center;
+    background: linear-gradient(270deg, #ffffff 0%, #bffcff 38%, #74e8f3 68%, rgba(133, 217, 223, 0.25) 100%);
+  }
+
+  &::after {
+    left: calc(100% - 4px);
+    transform: translateY(-50%) scaleX(0);
+    transform-origin: left center;
+    background: linear-gradient(90deg, #ffffff 0%, #bffcff 38%, #74e8f3 68%, rgba(133, 217, 223, 0.25) 100%);
+  }
+
+  &:hover {
+    border-color: rgba(244, 204, 104, 0.42);
+    background: rgba(20, 27, 37, 0.92);
+    box-shadow: inset 0 0 0 1px rgba(228, 242, 248, 0.12), 0 0 12px rgba(133, 217, 223, 0.2);
+
+    &::before {
+      transform: translateY(-50%) scaleX(1);
+      opacity: 1;
+      animation: blade-hum 1.2s ease-in-out 320ms infinite alternate;
+    }
+
+    &::after {
+      transform: translateY(-50%) scaleX(1);
+      opacity: 1;
+      animation: blade-hum 1.2s ease-in-out 320ms infinite alternate;
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid #85d9df;
+    outline-offset: 4px;
+
+    &::before {
+      transform: translateY(-50%) scaleX(1);
+      opacity: 1;
+      animation: blade-hum 1.2s ease-in-out 320ms infinite alternate;
+    }
+
+    &::after {
+      transform: translateY(-50%) scaleX(1);
+      opacity: 1;
+      animation: blade-hum 1.2s ease-in-out 320ms infinite alternate;
+    }
+  }
 }
 
 .logo__subtitle {
   display: block;
-  text-align: center;
+  margin-top: 3px;
+  color: #a5b0c0;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 8.8px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
 }
 
 .logo__overlay {
-  display: block;
-  height: 100px;
-  width: 100vw;
   position: absolute;
-  right: 0;
   top: 0;
-  background: rgba($color: #000, $alpha: 0.9);
-  transition: all 0.4s ease-in-out;
+  right: 0;
+  left: 0;
+  z-index: 4;
+  height: 72px;
+  background: linear-gradient(180deg, rgba(7, 10, 15, 0.88), transparent);
+  pointer-events: none;
+}
+
+@keyframes blade-hum {
+  from {
+    filter: brightness(0.9);
+  }
+
+  to {
+    filter: brightness(1.35);
+  }
 }

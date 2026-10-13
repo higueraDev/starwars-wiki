@@ -1,3 +1,9 @@
-<div class="breadcrumbs" *ngIf="breadcrumbs">
-  <span>Home  {{ breadcrumbs }}</span>
-</div>
+<nav class="breadcrumbs" *ngIf="currentPage" aria-label="Breadcrumb">
+  <a routerLink="/home" class="breadcrumbs__home">Home</a>
+  <span class="breadcrumbs__separator">/</span>
+  <ng-container *ngIf="parentFilmNumber">
+    <a [routerLink]="['/movie-details', parentFilmNumber]" class="breadcrumbs__home">Movie Details</a>
+    <span class="breadcrumbs__separator">/</span>
+  </ng-container>
+  <span class="breadcrumbs__current" aria-current="page">{{ currentPage }}</span>
+</nav>

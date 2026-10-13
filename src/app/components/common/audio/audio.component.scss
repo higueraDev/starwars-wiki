@@ -1,66 +1,35 @@
-@import "../../../../styles/vars";
-
 .audio-wrapper {
   position: fixed;
-  top: 20px;
-  left: 20px;
+  top: 18px;
+  left: 18px;
   z-index: 5;
 }
 
 .button {
-  background: transparent;
-  border: none;
-  padding: 0;
+  display: grid;
+  width: 42px;
+  height: 42px;
   margin: 0;
-  margin-top: 10px;
-  margin-left: 10px;
-  position: relative;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgba(213, 225, 240, 0.17);
+  border-radius: 50%;
+  background: rgba(10, 14, 20, 0.68);
   cursor: pointer;
-
-  &::before {
-    content: "Turn on audio";
-    white-space: nowrap;
-    position: absolute;
-    bottom: 55%;
-    left: 100%;
-    transform: translateY(50%);
-    display: inline-block;
-    width: 0;
-    padding: 0px;
-    border-top-right-radius: 0.75rem;
-    border-bottom-right-radius: 0.75rem;
-    font-family: $font-support;
-    font-size: 0;
-    background: #fff;
-    transition: width cubic-bezier(1, 0, 0, 1) 1s;
-    box-shadow: 0 0 2px rgb(119, 185, 242), 0 0 10px rgb(119, 185, 242),
-      0 0 20px rgb(2, 104, 248), 0 0 30px rgb(2, 104, 248),
-      0 0 40px rgb(2, 104, 248), 0 0 50px rgb(2, 104, 248);
-    -webkit-animation: blink 0.7s infinite alternate;
-    animation: blink 0.7s infinite alternate;
-  }
-
-  &.active {
-    .icon {
-      color: $color-secondary;
-    }
-    &::before {
-      content: "Turn off audio";
-    }
-  }
+  backdrop-filter: blur(14px);
+  transition: border-color 180ms ease, background 180ms ease;
 
   &:hover {
-    @media (min-width: 768px) {
-      &::before {
-        color: $color-secondary;
-        width: 150px;
-        font-size: 1.4rem;
-        padding-right: 20px;
-      }
-    }
+    border-color: rgba(133, 217, 223, 0.52);
+    background: rgba(22, 31, 42, 0.94);
+  }
+
+  &.active .icon {
+    color: #f4cc68;
   }
 }
 
 .icon {
-  font-size: 2.5rem;
+  color: #c4cfdb;
+  font-size: 1.35rem;
 }

@@ -6,8 +6,16 @@
     </option>
   </select>
 
-  <button title="ASC or DESC" type="button" class="sorter__button" (click)="onOrderChange()">
-    <span *ngIf="isAsc" class="material-icons">arrow_drop_up</span>
-    <span *ngIf="!isAsc" class="material-icons">arrow_drop_down</span>
+  <button
+    [attr.aria-label]="isAsc ? 'Sort descending' : 'Sort ascending'"
+    type="button"
+    class="sorter__button"
+    (click)="onOrderChange()"
+  >
+    <span
+      class="sorter__chevron"
+      [class.sorter__chevron--up]="isAsc"
+      aria-hidden="true"
+    ></span>
   </button>
 </form>

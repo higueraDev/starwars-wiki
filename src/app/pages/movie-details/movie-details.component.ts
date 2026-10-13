@@ -80,6 +80,8 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
 
   onCharacterClick(name: string) {
     const formattedName = name.replace(' ', '--');
-    this.router.navigate(['/character-details', formattedName]);
+    this.router.navigate(['/character-details', formattedName], {
+      queryParams: { fromFilm: this.filmNumber },
+    });
   }
 }

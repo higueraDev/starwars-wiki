@@ -12,6 +12,13 @@ export class StoreService {
   private isScrolledStore = new BehaviorSubject<boolean>(false);
   readIsScrolled$ = this.isScrolledStore.asObservable();
 
+  private isHomePageStore = new BehaviorSubject<boolean>(false);
+  readIsHomePage$ = this.isHomePageStore.asObservable();
+  private heroReturnRequested = false;
+
+  private starSpeedStore = new BehaviorSubject<number>(1);
+  readStarSpeed$ = this.starSpeedStore.asObservable();
+
   private charactersStore = new BehaviorSubject<Character[]>([]);
   readCharacters$ = this.charactersStore.asObservable();
 
@@ -35,6 +42,24 @@ export class StoreService {
 
   setScrolled(value: boolean) {
     this.isScrolledStore.next(value);
+  }
+
+  setIsHomePage(value: boolean) {
+    this.isHomePageStore.next(value);
+  }
+
+  setStarSpeed(value: number): void {
+    this.starSpeedStore.next(value);
+  }
+
+  requestHeroReturn(): void {
+    this.heroReturnRequested = true;
+  }
+
+  consumeHeroReturn(): boolean {
+    const requested = this.heroReturnRequested;
+    this.heroReturnRequested = false;
+    return requested;
   }
 
   getCharacters(characterName: string = '') {

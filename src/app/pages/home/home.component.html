@@ -1,7 +1,7 @@
 <main #homeMain class="home__main" (scroll)="onScroll()">
-  <app-hero [titleOpacity]="titleOpacity"></app-hero>
-  <button class="material-icons scroll-down" (click)="onScrollButtonClick()">
-    expand_more
-  </button>
+  <app-hero
+    [morphProgress]="heroTransitionProgress"
+    (scrollToCatalog)="onScrollButtonClick()"
+  ></app-hero>
   <app-film-catalog></app-film-catalog>
 </main>

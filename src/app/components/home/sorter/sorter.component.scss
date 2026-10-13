@@ -1,49 +1,70 @@
 @import "../../../../styles/vars";
 
-.sorter__form{
+.sorter__form {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
+  gap: 12px;
   position: relative;
-  padding: 20px 60px 20px 0;
+  width: fit-content;
+  max-width: 100%;
+  padding: 20px 58px 28px 0;
 }
 
-.sorter__button {
-  background: none;
-  border: none;
-  margin: 0;
-  padding: 0;
-  height: auto;
-  cursor: pointer;
-  position: absolute;
-  right: 0;
-  bottom: 50%;
-  transform: translateY(50%);
-
-  span{
-    font-size: 3.5rem;
-    text-shadow: 0 0 2px #fbe122, 0 0 10px #fbe122,
-    0 0 20px #fadd00, 0 0 30px #fadd00,
-    0 0 40px #fadd00, 0 0 50px #fadd00;
-  }
+.sorter__label {
+  color: #a5b0c0;
+  font-size: 0.86rem;
 }
 
 .sorter__select {
-  display: inline-block;
   width: auto;
-  padding: 3px 10px;
-  border-radius: 15px;
-  color: black;
-  height: 30px;
-  font-size: 1rem;
-  border-color: $color-support;
-  box-shadow: 0 0 2px rgb(119, 185, 242), 0 0 10px rgb(119, 185, 242),
-    0 0 20px rgb(2, 104, 248), 0 0 30px rgb(2, 104, 248),
-    0 0 40px rgb(2, 104, 248), 0 0 50px rgb(2, 104, 248);
+  min-width: 140px;
+  height: 42px;
+  padding: 0 38px 0 14px;
+  border: 1px solid rgba(213, 225, 240, 0.2);
+  border-radius: 12px;
+  background: #151d28;
+  color: #f4f6f8;
+  font-size: 0.92rem;
   outline: none;
 }
 
+.sorter__select:focus {
+  border-color: #85d9df;
+  box-shadow: 0 0 0 3px rgba(133, 217, 223, 0.13);
+}
 
-.sorter__label{
-  margin-right: 10px;
+.sorter__button {
+  position: absolute;
+  right: 0;
+  bottom: 24px;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(213, 225, 240, 0.2);
+  border-radius: 12px;
+  background: #151d28;
+  color: #f4cc68;
+  cursor: pointer;
+  transition: border-color 180ms ease, background 180ms ease;
+
+  &:hover {
+    border-color: rgba(244, 204, 104, 0.65);
+    background: #202a37;
+  }
+
+}
+
+.sorter__chevron {
+  display: block;
+  width: 9px;
+  height: 9px;
+  transform: translateY(-2px) rotate(45deg);
+  border-right: 2px solid #f4cc68;
+  border-bottom: 2px solid #f4cc68;
+}
+
+.sorter__chevron--up {
+  transform: translateY(2px) rotate(225deg);
 }
