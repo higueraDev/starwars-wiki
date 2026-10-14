@@ -10,6 +10,7 @@ import { CharactersService } from '../../services/characters.service';
 import { Character } from '../../models/entities/character';
 
 @Component({
+  standalone: false,
   selector: 'app-movie-details',
   templateUrl: './movie-details.component.html',
   styleUrls: ['./movie-details.component.scss'],

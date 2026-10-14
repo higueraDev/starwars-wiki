@@ -9,6 +9,7 @@ import { PlanetsService } from '../../services/planets.service';
 import { Planet } from '../../models/entities/Planet';
 
 @Component({
+  standalone: false,
   selector: 'app-characters-detail',
   templateUrl: './characters-detail.component.html',
   styleUrls: ['./characters-detail.component.scss'],

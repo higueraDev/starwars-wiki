@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-audio',
   templateUrl: './audio.component.html',
   styleUrls: ['./audio.component.scss'],
