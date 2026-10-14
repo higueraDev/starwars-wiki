@@ -12,6 +12,9 @@ export class HeroComponent implements OnDestroy {
   @Input() morphProgress: number = 0;
   @Output() scrollToCatalog = new EventEmitter<void>();
 
+  public brandActive = false;
+  private brandHovered = false;
+  private activationTimer?: ReturnType<typeof setTimeout>;
   public title = 'Star Wars';
   public subtitle = 'Wiki';
   private viewportWidth = window.innerWidth;
@@ -74,16 +77,32 @@ export class HeroComponent implements OnDestroy {
   }
 
   onBrandClick(): void {
+    clearTimeout(this.activationTimer);
+    this.setBrandActive(true);
+    this.activationTimer = setTimeout(() => {
+      this.activationTimer = undefined;
+      this.setBrandActive(this.brandHovered);
+    }, 900);
     this.saberAudio.currentTime = 0;
     void this.saberAudio.play().catch(() => undefined);
     this.scrollToCatalog.emit();
   }
 
-  onBrandHover(active: boolean): void {
+  onBrandHover(event: PointerEvent, active: boolean): void {
+    if (event.pointerType !== 'mouse' || !window.matchMedia('(any-hover: hover)').matches) {
+      return;
+    }
+    this.brandHovered = active;
+    this.setBrandActive(active || this.activationTimer !== undefined);
+  }
+
+  private setBrandActive(active: boolean): void {
+    this.brandActive = active;
     this.storeService.setStarSpeed(active ? 8.5 : 1);
   }
 
   ngOnDestroy(): void {
+    clearTimeout(this.activationTimer);
     this.storeService.setStarSpeed(1);
     this.saberAudio.pause();
   }

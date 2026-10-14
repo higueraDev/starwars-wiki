@@ -4,6 +4,7 @@
     type="button"
     class="hero__brand"
     [class.hero__brand--compact]="isCompact"
+    [class.hero__brand--active]="brandActive"
     [style.top.px]="brandTop"
     [style.width.px]="brandWidth"
     [style.height.px]="brandHeight"
@@ -11,8 +12,8 @@
     [style.--ring-one]="ringOne + 'px'"
     [style.--ring-two]="ringTwo + 'px'"
     [attr.aria-label]="isCompact ? 'Back to top' : 'Scroll to film catalog'"
-    (mouseenter)="onBrandHover(true)"
-    (mouseleave)="onBrandHover(false)"
+    (pointerenter)="onBrandHover($event, true)"
+    (pointerleave)="onBrandHover($event, false)"
     (click)="onBrandClick()"
   >
     <span class="hero__brand-surface" aria-hidden="true"></span>
