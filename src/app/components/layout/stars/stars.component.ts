@@ -13,6 +13,7 @@ interface Star {
 }
 
 @Component({
+  standalone: false,
   selector: 'app-stars',
   templateUrl: './stars.component.html',
   styleUrls: ['./stars.component.scss']

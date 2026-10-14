@@ -1,31 +1,21 @@
-# StarwarsWiki
+# Star Wars Wiki
 
-[Try it here!](https://angular-store-22e59.web.app/home)
+Angular 21 application with film and character pages, a canvas starfield, and hyperspace interactions.
 
---------------------------------------------------------
+## Development
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.3.
+Use Node 24 (`nvm use`), then run `npm ci` and `npm start`.
 
-## Development server
+## Validation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- `npm test` runs the component and service suite with Angular's Vitest runner and jsdom.
+- `npm audit` checks production and development dependencies.
+- `npm run build -- --base-href /starwars-wiki/` generates the GitHub Pages artifact in `dist/starwars-wiki`.
 
-## Code scaffolding
+CI runs these checks for pull requests and pushes to main. Dependabot checks npm and GitHub Actions updates weekly and groups Angular packages together.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Dependency maintenance
 
-## Build
+The application uses `@angular/build` with the application builder. Components explicitly retain NgModule declarations, and zone-based change detection remains enabled. The legacy Webpack and Karma toolchains are removed. No security advisories are suppressed and no cross-major dependency overrides are used.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The Pages base URL, hash routes, and flat artifact output directory are preserved. Publishing the artifact remains a separate step.

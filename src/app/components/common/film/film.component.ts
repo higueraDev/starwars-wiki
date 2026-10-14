@@ -4,6 +4,7 @@ import { Film } from '../../../models/entities/film';
 import { StoreService } from '../../../services/store.service';
 
 @Component({
+  standalone: false,
   selector: 'app-film',
   templateUrl: './film.component.html',
   styleUrls: ['./film.component.scss'],

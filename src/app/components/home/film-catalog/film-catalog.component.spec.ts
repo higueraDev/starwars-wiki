@@ -1,3 +1,4 @@
+import { AppModule } from '../../../app.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FilmCatalogComponent } from './film-catalog.component';
@@ -8,7 +9,7 @@ describe('FilmCatalogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FilmCatalogComponent ]
+      imports: [AppModule]
     })
     .compileComponents();
 

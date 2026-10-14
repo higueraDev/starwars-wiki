@@ -3,6 +3,7 @@ import { StoreService } from '../../../services/store.service';
 import { Subscription } from 'rxjs';
 
 @Component({
+  standalone: false,
   selector: 'app-logo',
   templateUrl: './logo.component.html',
   styleUrls: ['./logo.component.scss'],

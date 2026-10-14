@@ -1,3 +1,4 @@
+import { AppModule } from '../../../app.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SorterComponent } from './sorter.component';
@@ -8,7 +9,7 @@ describe('SorterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SorterComponent ]
+      imports: [AppModule]
     })
     .compileComponents();
 

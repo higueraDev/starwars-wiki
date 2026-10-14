@@ -2,6 +2,7 @@ import { Component, ElementRef, EventEmitter, HostListener, Input, OnDestroy, Ou
 import { StoreService } from '../../../services/store.service';
 
 @Component({
+  standalone: false,
   selector: 'app-hero',
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.scss']

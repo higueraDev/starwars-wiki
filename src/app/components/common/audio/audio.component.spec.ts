@@ -1,3 +1,4 @@
+import { AppModule } from '../../../app.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AudioComponent } from './audio.component';
@@ -8,7 +9,7 @@ describe('AudioComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AudioComponent ]
+      imports: [AppModule]
     })
     .compileComponents();
 

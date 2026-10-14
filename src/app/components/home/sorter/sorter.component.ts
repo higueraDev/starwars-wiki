@@ -3,6 +3,7 @@ import { SortOptions } from '../../../models/enums/sort-options';
 import { InterfaceFactoryService } from '../../../services/interface-factory.service';
 
 @Component({
+  standalone: false,
   selector: 'app-sorter',
   templateUrl: './sorter.component.html',
   styleUrls: ['./sorter.component.scss'],

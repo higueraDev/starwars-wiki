@@ -1,0 +1,16 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      angular:
+        patterns:
+          - "@angular/*"
+          - "zone.js"
+          - "typescript"
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly

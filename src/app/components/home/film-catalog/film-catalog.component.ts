@@ -14,6 +14,7 @@ import { StoreService } from '../../../services/store.service';
 import { Subscription } from 'rxjs';
 
 @Component({
+  standalone: false,
   selector: 'app-film-catalog',
   templateUrl: './film-catalog.component.html',
   styleUrls: ['./film-catalog.component.scss'],
