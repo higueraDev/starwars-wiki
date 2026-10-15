@@ -21,6 +21,12 @@ describe('HeroComponent', () => {
     fixture.detectChanges();
   });
 
+  afterEach(() => {
+    vi.useRealTimers();
+    vi.unstubAllGlobals();
+    vi.restoreAllMocks();
+  });
+
   it('ignores touch hover and activates only after a tap', async () => {
     vi.useFakeTimers();
     const speed = vi.spyOn(TestBed.inject(StoreService), 'setStarSpeed');
@@ -42,7 +48,7 @@ describe('HeroComponent', () => {
   });
 
   it('preserves mouse hover on hover-capable devices', () => {
-    vi.spyOn(window, 'matchMedia').mockReturnValue({ matches: true } as MediaQueryList);
+    vi.stubGlobal('matchMedia', vi.fn().mockReturnValue({ matches: true } as MediaQueryList));
     component.onBrandHover(new PointerEvent('pointerenter', { pointerType: 'mouse' }), true);
     expect(component.brandActive).toBe(true);
     component.onBrandHover(new PointerEvent('pointerleave', { pointerType: 'mouse' }), false);
